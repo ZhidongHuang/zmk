@@ -48,5 +48,5 @@
 };
 
 pro_micro_i2c: &i2c0 {};
-pro_micro_spi: &spi0 {};
+pro_micro_spi: &spi1 {};
 pro_micro_serial: &uart0 {};

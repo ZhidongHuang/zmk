@@ -44,11 +44,15 @@
 			, <8 0 &gpio0 10 0>	/* D8/A8 */
 			, <9 0 &gpio1 6 0>	/* D9/A9 */
 			, <10 0 &gpio1 11 0>	/* D10/A10 */
+			, <11 0 &gpio1 2 0>	/* D9/A9 */
+			, <12 0 &gpio1 4 0>	/* D9/A9 */
+			, <13 0 &gpio1 0 0>	/* D9/A9 */
+			, <14 0 &gpio0 22 0>	/* D9/A9 */
 			;
 	};
 };
 
 
 pro_micro_i2c: &i2c0 {};
-pro_micro_spi: &spi0 {};
+pro_micro_spi: &spi1 {};
 pro_micro_serial: &uart0 {};

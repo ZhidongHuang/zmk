@@ -16,11 +16,13 @@ LOG_MODULE_REGISTER(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <zmk/kscan.h>
 #include <zmk/display.h>
 #include <drivers/ext_power.h>
+#include <stdio.h>
 
 #define ZMK_KSCAN_DEV DT_LABEL(ZMK_MATRIX_NODE_ID)
+// #define CONFIG_ZMK_DISPLAY 1
 
 void main(void) {
-    struct device *ext_power;
+    // struct device *ext_power; 
     LOG_INF("Welcome to ZMK!\n");
 
     if (zmk_kscan_init(ZMK_KSCAN_DEV) != 0) {
@@ -28,17 +30,19 @@ void main(void) {
     }
 
     // Enable the external VCC output
-    ext_power = device_get_binding("EXT_POWER");
-    if (ext_power != NULL) {
-        const struct ext_power_api *ext_power_api = ext_power->driver_api;
-        ext_power_api->enable(ext_power);
-    }
-
+    // ext_power = device_get_binding("EXT_POWER");
+    // if (ext_power != NULL) {
+    //     const struct ext_power_api *ext_power_api = ext_power->driver_api;
+    //     ext_power_api->enable(ext_power);
+    // }
 #ifdef CONFIG_ZMK_DISPLAY
+    
     zmk_display_init();
-
     while (1) {
+        printf ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  CONFIG_ZMK_DISPLAY\n");
         zmk_display_task_handler();
     }
+
+
 #endif /* CONFIG_ZMK_DISPLAY */
 }

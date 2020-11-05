@@ -21,7 +21,7 @@
 	leds {
 		compatible = "gpio-leds";
 		blue_led: led_0 {
-			gpios = <&gpio1 10 GPIO_ACTIVE_HIGH>;
+			gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;
 			label = "Blue LED";
 		};
 	};
@@ -29,7 +29,7 @@
 	ext-power {
 		compatible = "zmk,ext-power-generic";
 		label = "EXT_POWER";
-		control-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
+		control-gpios = <&gpio1 8 GPIO_ACTIVE_LOW>;
 	};
 };
 
@@ -41,18 +41,13 @@
 	status = "okay";
 };
 
-&i2c0 {
-	compatible = "nordic,nrf-twi";
-	sda-pin = <15>;
-	scl-pin = <17>;
-};
 
 &uart0 {
 	compatible = "nordic,nrf-uarte";
 	status = "okay";
 	current-speed = <115200>;
 	tx-pin = <39>;
-	rx-pin = <34>;
+	rx-pin = <6>;
 	rts-pin = <33>;
 	cts-pin = <12>;
 };
@@ -61,6 +56,14 @@
 	status = "okay";
 };
 
+&spi1 {
+	status = "okay";
+	compatible = "nordic,nrf-spi";
+	sck-pin = <36>;
+	mosi-pin = <38>;
+	miso-pin = <26>;
+
+};
 
 &flash0 {
 	/*

@@ -101,12 +101,14 @@ config ZMK_EXT_POWER
 
 config ZMK_DISPLAY
 	bool "ZMK display support"
-	default n
+	default y
 	select DISPLAY
 	select LVGL
 	select LVGL_THEMES
 	select LVGL_THEME_MONO
 	select LVGL_OBJ_LABEL
+	select LVGL_OBJ_IMAGE
+
 
 menu "Split Support"
 
